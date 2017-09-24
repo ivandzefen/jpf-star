@@ -144,7 +144,7 @@ public class Solver {
 						br.close();
 						p.waitFor();
 					} catch (Exception e) {
-
+//						e.printStackTrace();
 					}
 				}
 			};
