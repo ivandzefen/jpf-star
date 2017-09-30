@@ -22,7 +22,7 @@ import star.predicate.InductivePredParser;
 public class Sll2Test extends TestJPF {
 	
 	private void initDataNode() {
-		String data = "data Node {Node next}";
+		String data = "data Node_old {Node_old next}";
 		
 		ANTLRInputStream in = new ANTLRInputStream(data);
 		DataNodeLexer lexer = new DataNodeLexer(in);
@@ -34,7 +34,7 @@ public class Sll2Test extends TestJPF {
 	}
 	
 	private void initPredicate() {
-		String pred = "pred sll(root) == root = null || root::Node<next> * sll(next)";
+		String pred = "pred sll(root) == root = null || root::Node_old<next> * sll(next)";
 		
 		ANTLRInputStream in = new ANTLRInputStream(pred);
 		InductivePredLexer lexer = new InductivePredLexer(in);

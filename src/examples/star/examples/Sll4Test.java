@@ -22,7 +22,7 @@ import star.predicate.InductivePredParser;
 public class Sll4Test extends TestJPF {
 	
 	private void initDataNode() {
-		String data = "data Node {Node next}";
+		String data = "data Node_old {Node_old next}";
 		
 		ANTLRInputStream in = new ANTLRInputStream(data);
 		DataNodeLexer lexer = new DataNodeLexer(in);
@@ -34,7 +34,7 @@ public class Sll4Test extends TestJPF {
 	}
 	
 	private void initPredicate() {
-		String pred = "pred sll(root) == root = null || root::Node<next> * sll(next)";
+		String pred = "pred sll(root) == root = null || root::Node_old<next> * sll(next)";
 		
 		ANTLRInputStream in = new ANTLRInputStream(pred);
 		InductivePredLexer lexer = new InductivePredLexer(in);
@@ -67,17 +67,17 @@ public class Sll4Test extends TestJPF {
 	@Test
 	public void testMain() {
 		if (verifyNoPropertyViolation(
-				"+listener=.star.StarListener",
+				"+listener=star.StarListener",
 //				"+star.max_len_pc=6",
 //				"+star.min_int=-100",
 //				"+star.max_int=100",
 //				"+star.lazy=false",
-				"+star.test_path=/Users/HongLongPham/Workspace/JPF_HOME/jpf-star/src/examples/gov/nasa/jpf/star/examples",
-				"+star.test_package=gov.nasa.jpf.star.examples",
+				"+star.test_path=/Users/HongLongPham/Workspace/JPF_HOME/jpf-star/src/examples/star/examples",
+				"+star.test_package=star.examples",
 //				"+star.test_imports=...",
 				"+classpath=build/examples", 
 				"+sourcepath=src/examples",
-				"+symbolic.method=gov.nasa.jpf.star.examples.Sll4.myMethod()",
+				"+symbolic.method=star.examples.Sll4.myMethod()",
 				"+symbolic.fields=static",
 				"+symbolic.lazy=true")) {
 			Sll4.main(null);
